@@ -1,4 +1,4 @@
-##创建版本库
+## 创建版本库
 * *创建一个空目录*
 
     *   **$ mkdir learngit**  
@@ -20,7 +20,7 @@
         `2 insertions`文件插入了两行内容  
 ***
 
-##版本回退
+## 版本回退
 * *查看历史修改*
     *   **$ git log**  
         * `git log`命令查看历史修改记录  
@@ -37,7 +37,8 @@
     * **$ git reflog**
         * `git reflog`用来记录每一次命令
 ***
-##工作区和暂存区
+
+## 工作区和暂存区
 * *工作区*
     * **你在电脑里能看到的目录**
 * *版本库*
@@ -51,14 +52,15 @@
         `Untracked`表明文件未被`git add`到工作区
 ***
 
-##管理修改
+## 管理修改
 * *文件的两次修改的提交*
     * **第一次修改 -> `git add` -> 第二次修改 -> `git add` -> `git commit`**  
 * *查看文件具体前后修改内容*
     * **git diff HEAD -- 文件名**
         * `git diff HEAD -- 文件名`命令可以查看工作区和版本库里面最新版本的区别
 ***
-##撤销修改
+
+## 撤销修改
 * *丢弃工作区的修改*
     * **$ git checkout -- 文件名**  
         * `git checkout -- 文件名`命令意思就是，把文件在工作区的修改全部撤销  
@@ -69,7 +71,7 @@
         现在`暂存区是干净的`，`工作区有修改`之后再`丢弃工作区的修改`
 ***
 
-##删除文件
+## 删除文件
 * *从工作区中删除文件*
     * **$ rm 文件名或者直接用文件管理器删除**  
 * *从版本库中删除文件*
@@ -81,7 +83,7 @@
         * `git checkout`其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
 ***
 
-##添加远程库
+## 添加远程库
 * *在Github创建一个新的仓库*
     * **第一步“Create a new repo”创建一个新的仓库**  
     **第二步在Repository name填入仓库名字，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库**
@@ -93,7 +95,7 @@
         此后，每次本地提交后就可以使用命令`git push origin master`推送最新修改
 ***
 
-##从远程库克隆
+## 从远程库克隆
 * *在Github创建一个新的仓库*
     * **第一步“Create a new repo”创建一个新的仓库**  
     **第二步在Repository name填入仓库名字，`勾选Initialize this repository with a README`，这样GitHub会自动为我们创建一个`README.md`文件。创建完毕后，可以看到README.md文件**
@@ -104,7 +106,7 @@
         * `git clone`命令用于将远程库克隆到本地库
 ***
 
-##创建与合并分支
+## 创建与合并分支
 * *创建dev分支，然后切换到dev分支*
     * **$ git checkout -b dev**
         * `git checkou`t命令加上-b参数表示创建并切换
@@ -121,10 +123,9 @@
         `Fast-forward`信息,合并是`“快进模式”`，也就是`直接把master指向dev的当前提交`,并不是所有都是这种模式
 * *删除分支*
     * **$ git branch -d dev**
-    * 
 ***
 
-##解决冲突
+## 解决冲突
 * *冲突发生的情况：在`两个不同的分支`都做了`不一样的修改`并且都`提交`*了,这种情况下，Git`无法`执行“`快速合并”`*    
 *文件存在冲突，必须`手动解决冲突后`再提交。`git status`也可以告诉我们冲突的文件*  
     * **`直接查看`冲突文件的内容**  
@@ -133,7 +134,7 @@
         * `$ git log --graph --pretty=oneline --abbrev-commit`可以看到分支的合并情况
 ***
 
-##分支管理策略
+## 分支管理策略
 * *禁用Fast forward*
     * **合并分支时用`Fast forward`模式，删除分支后，会`丢掉分支信息`**  
     **`强制禁用Fast forward模式`，Git就会在`merge`时生成一个`新的commit`，这样，从`分支历史`上就可以`看出分支信息`。**  
@@ -142,7 +143,7 @@
            用`git log`看看分支历史，会发现有`合并的信息`
 ***
 
-##Bug分支
+## Bug分支
 * *隐藏工作区:有时候修改bug时，但是`分支工作没有完成不想提交时`来隐藏工作区*
     * **$ git stash**  
         * `stash`功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作,用`git status`查看工作区，就是干净的
@@ -156,13 +157,13 @@
         恢复指定的stash，用命令`$ git stash apply stash@{0}`
 ***
 
-##Feature分支
+## Feature分支
 * *丢弃没有被合并过的分支*
     * **$ git branch -D feature-vulcan**  
         * `git branch -D <name>`用于强行删除一个没有被合并的分支
 ***
 
-##多人协作
+## 多人协作
 * *查看远程库的信息*
     * **$ git remote -v**  
         * `git remote -v`可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址
@@ -181,7 +182,7 @@
         `git pull`失败了原因是没有指定`本地dev分支`与`远程origin/dev分支`的链接,用`$ git branch --set-upstream-to=origin/dev dev`就可以解决，再pull
 ***
 
-##创建标签
+## 创建标签
 * *创建标签*
     * **$ git tag tagname**  
         * `git tag <tagname>`命令用于新建一个标签，默认为`HE`AD，也可以指定一个`commit id`,命令为`$ git tag v0.9 commit id`
@@ -195,7 +196,7 @@
         `git show tagname`查看标签信息
 ***
 
-##操作标签
+## 操作标签
 * **命令git push origin tagname可以推送一个本地标签**
 
 * **命令git push origin --tags可以推送全部未推送过的本地标签**
